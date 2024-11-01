@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,40 +10,31 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  fetch_data<T>(urlData: string | string[], payload: {[key: string]: string}) {
-    let url = '';
-
+  private createUrl(prefix: string, urlData: string[] | string): string {
+    let url = urlData;
     if (Array.isArray(urlData)) {
-      url = this.createUrl([...urlData]);
+      url = urlData.join('/')
     }
-
-    else {
-      url = this.createUrl(['get', urlData]);
-    }
-
-    return this.http.get<T>(url, {params: payload})
+    return `${environment.baseUrl}/${prefix}/${url}`;
   }
 
-  /**
-
-  create<Type>(url: string | string[], payload: {[key: string]: any}): Observable<Type>{
-    const theUrl  = this.createUrl([...url]);
-    return this.client.put<Type>(theUrl, payload);
+  fetch<T>(what: string | string[], payload?: {[key: string]: string}) {
+    const url = this.createUrl('get', what);
+    return this.http.get<T>(url, {params: payload});
   }
 
-  update<Type>(url: string | string[], payload: {[key: string]: any}): Observable<Type> {
-    const theUrl  = this.createUrl([...url]);
-    return this.client.post<Type>(theUrl, payload);
+  create<T>(what: string | string[], payload: {[key: string]: any}): Observable<T>{
+    const theUrl  = this.createUrl('create', what);
+    return this.http.post<T>(theUrl, payload);
   }
 
-  delete<Type>(url: string | string[], id: number): Observable<Type> {
-    const theUrl  = this.createUrl([...url]);
-    return this.client.delete<Type>(`${theUrl, 'delete')}/${id}`);
+  update<T>(what: string | string[], payload: {[key: string]: any}): Observable<T> {
+    const theUrl  = this.createUrl('update', what);
+    return this.http.put<T>(theUrl, payload);
   }
-  
-  */
-  private createUrl(urlData: string[]): string {
-    const url = urlData.join('/');
-    return `${environment.baseUrl}/${url}`;
+
+  delete<T>(what: string | string[], id: number): Observable<T> {
+    const theUrl  = this.createUrl('destroy', what);
+    return this.http.delete<T>(`${theUrl}/${id}`);
   }
 }
