@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center item-align-center flex-column">
+        <div class="col-md-6">
+            <form [formGroup]="productForm">
+                <mat-form-field appearance="fill">
+                  <mat-label>ID</mat-label>
+                  <input matInput formControlName="id" type="number" readonly>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                  <mat-label>Title</mat-label>
+                  <input matInput formControlName="title">
+                  <mat-error *ngIf="productForm.titleFormControl.hasError('required')">Title is required</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field appearance="fill">
+                  <mat-label>Rate</mat-label>
+                  <input matInput formControlName="rate" type="number">
+                  <mat-error *ngIf="productForm.rateFormControl.hasError('required')">Rate is required</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field appearance="fill">
+                  <mat-label>Image URL</mat-label>
+                  <input matInput formControlName="image_url">
+                  <mat-error *ngIf="productForm.imageFormControl.hasError('required')">Image URL is required</mat-error>
+                </mat-form-field>
+              
+                <button mat-raised-button color="primary" [disabled]="productForm.invalid">Submit</button>
+              </form>
+              
+        </div>
+    </div>
+</div>

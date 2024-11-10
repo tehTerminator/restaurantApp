@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthStoreService {
   private _state = new BehaviorSubject<AuthState>(AuthState.LOGGED_OUT);
+  // private _state = new BehaviorSubject<AuthState>(AuthState.LOGGED_IN); // Only For Testing Purpose
   /**
    * Holds Current User Data
    */
@@ -52,7 +53,11 @@ export class AuthStoreService {
     this._state.next(AuthState.STARTED);
   }
 
-  get user(): User {
+  get user(): Observable<User> {
+    return this._user;
+  }
+
+  get userData(): User {
     return this._user.value;
   }
 

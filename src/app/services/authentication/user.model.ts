@@ -1,5 +1,6 @@
 import { Entity } from "../../interface/entity.interface";
 import { Role } from "../../interface/role.interface";
+import { HOUR } from "../../shared/constants";
 
 export class User {
     private _id: number
@@ -17,7 +18,7 @@ export class User {
         this._mobile = userData.mobile;
         this._auth_token = userData.auth_token;
         this._role = userData.role;
-        this._expirationTime = (new Date()).getTime() + 60000;
+        this._expirationTime = (new Date()).getTime() + HOUR;
     }
 
     get id(): number {
@@ -59,9 +60,10 @@ export interface UserData extends Entity {
     mobile: string;
     auth_token: string;
     role: Role;
+    role_id: number;
 }
 
-export const AnonymousUser = {
+export const AnonymousUser: UserData = {
     id: 0,
     name: 'Anonymous',
     username: 'anonymous',
@@ -71,9 +73,6 @@ export const AnonymousUser = {
       id: 0,
       name: 'Anonymous User',
       description: 'Not Authenticated User',
-      created_at: (new Date()),
-      updated_at: (new Date())
     },
-    created_at: (new Date()),
-    updated_at: (new Date())
+    role_id: 0
   }
