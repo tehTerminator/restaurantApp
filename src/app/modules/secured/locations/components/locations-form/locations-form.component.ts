@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { LocationFormGroup } from '../../locationsFormGroup';
 import { ActivatedRoute } from '@angular/router';
 import { take, Observable, from } from 'rxjs';
@@ -39,7 +39,7 @@ export class LocationsFormComponent implements AfterViewInit {
 
   private loadLocation() {
     this.api
-      .fetch<Location>('Location', { id: this.locationFormGroup.id.toString() })
+      .fetch<Location>('location', { id: this.locationFormGroup.id.toString() })
       .subscribe({
         next: (Location: Location) => {
           this.locationFormGroup.title = Location.title;

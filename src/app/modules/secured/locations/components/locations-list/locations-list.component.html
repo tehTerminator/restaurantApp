@@ -1,3 +1,27 @@
-<p>
-  locations-list works!
-</p>
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">Location List</h2>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li
+          *ngFor="let location of locations"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+          [routerLink]="['/auth', 'locations', 'update', location.id]"
+        >
+          <div>
+            <h5 class="mb-1 fs-5">{{ location.title }}</h5>
+          </div>
+        </li>
+      </ul>
+      <div
+        *ngIf="locations.length === 0"
+        class="alert alert-warning mt-3"
+        role="alert"
+      >
+        No locations available.
+      </div>
+    </div>
+  </div>
+</div>
