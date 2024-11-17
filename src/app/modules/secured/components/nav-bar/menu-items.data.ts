@@ -5,7 +5,7 @@ export const navItems = [
       { text: 'Create', routerLink: ['orders', 'create'] },
       { text: 'View', routerLink: ['orders', 'view'] },
     ],
-    role: ''
+    role: '',
   },
   {
     title: 'Invoices',
@@ -19,6 +19,13 @@ export const navItems = [
     links: [
       { text: 'Create', routerLink: ['products', 'create'] },
       { text: 'View', routerLink: ['products', 'view'] },
+    ],
+  },
+  {
+    title: 'Location',
+    links: [
+      { text: 'Create', routerLink: ['locations', 'create'] },
+      { text: 'View', routerLink: ['locations', 'view'] },
     ],
   },
 ];

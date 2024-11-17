@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <form
+        [formGroup]="locationFormGroup"
+        class="card"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="card-body">
+          <h3 class="card-title">Location</h3>
+
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+            <mat-error
+              *ngIf="locationFormGroup.titleFormControl.hasError('required')"
+              >Title is required</mat-error
+            >
+          </mat-form-field>
+
+          <button
+            class="w-100 mt-3 p-4"
+            mat-raised-button
+            color="primary"
+            [disabled]="locationFormGroup.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
