@@ -1,33 +1,44 @@
 <div class="container-fluid">
-    <div class="row d-flex justify-content-center item-align-center flex-column">
-        <div class="col-md-6">
-            <form [formGroup]="productForm">
-                <mat-form-field appearance="fill">
-                  <mat-label>ID</mat-label>
-                  <input matInput formControlName="id" type="number" readonly>
-                </mat-form-field>
-                
-                <mat-form-field appearance="fill">
-                  <mat-label>Title</mat-label>
-                  <input matInput formControlName="title">
-                  <mat-error *ngIf="productForm.titleFormControl.hasError('required')">Title is required</mat-error>
-                </mat-form-field>
-              
-                <mat-form-field appearance="fill">
-                  <mat-label>Rate</mat-label>
-                  <input matInput formControlName="rate" type="number">
-                  <mat-error *ngIf="productForm.rateFormControl.hasError('required')">Rate is required</mat-error>
-                </mat-form-field>
-              
-                <mat-form-field appearance="fill">
-                  <mat-label>Image URL</mat-label>
-                  <input matInput formControlName="image_url">
-                  <mat-error *ngIf="productForm.imageFormControl.hasError('required')">Image URL is required</mat-error>
-                </mat-form-field>
-              
-                <button mat-raised-button color="primary" [disabled]="productForm.invalid">Submit</button>
-              </form>
-              
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <form [formGroup]="productForm" class="card" (ngSubmit)="onSubmit()">
+        <div class="card-body">
+          <h3 class="card-title">Create Product</h3>
+
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+            <mat-error *ngIf="productForm.titleFormControl.hasError('required')"
+              >Title is required</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Rate</mat-label>
+            <input matInput formControlName="rate" type="number" />
+            <mat-error *ngIf="productForm.rateFormControl.hasError('required')"
+              >Rate is required</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Image Url</mat-label>
+            <input matInput formControlName="image_url" type="string" />
+            <mat-error *ngIf="productForm.imageFormControl.hasError('required')"
+              >Please Enter Image Url</mat-error
+            >
+          </mat-form-field>
+
+          <button
+            class="w-100 mt-3 p-4"
+            mat-raised-button
+            color="primary"
+            [disabled]="productForm.invalid"
+          >
+            Submit
+          </button>
         </div>
+      </form>
     </div>
+  </div>
 </div>

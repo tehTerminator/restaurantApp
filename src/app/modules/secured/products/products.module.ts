@@ -2,24 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductsComponent } from './products.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
-  declarations: [
-    ProductsComponent,
-    ProductFormComponent,
-  ],
+  declarations: [ProductFormComponent, ProductListComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
-export class ProductsModule { }
+export class ProductsModule {}
