@@ -1,17 +1,9 @@
-export const navItems = [
+export const navItems: Array<MenuItems> = [
   {
     title: 'Orders',
     links: [
       { text: 'Create', routerLink: ['orders', 'create'] },
       { text: 'View', routerLink: ['orders', 'view'] },
-    ],
-    role: '',
-  },
-  {
-    title: 'Invoices',
-    links: [
-      { text: 'Create', routerLink: ['invoices', 'create'] },
-      { text: 'View', routerLink: ['invoices', 'view'] },
     ],
   },
   {
@@ -29,3 +21,9 @@ export const navItems = [
     ],
   },
 ];
+
+interface MenuItems {
+  title: string;
+  links: Array<{ text: string; routerLink: Array<string> }>;
+  role?: string;
+}

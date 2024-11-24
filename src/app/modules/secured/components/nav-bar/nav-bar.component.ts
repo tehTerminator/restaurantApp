@@ -16,8 +16,8 @@ export class NavBarComponent implements OnInit {
     this._role = this.userStore.userData.role;
   }
 
-  hasRole(role: string | undefined): boolean {
-    if (role === undefined) {
+  hasRole(role: string | undefined | null): boolean {
+    if (role === undefined || role === null) {
       return true;
     }
     return role === this._role;
