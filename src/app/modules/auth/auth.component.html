@@ -1,48 +1,67 @@
 <div class="container-fluid h-100">
-    <div class="h-100 row d-flex flex-column justify-content-center align-items-center">
-        <div class="col-md-6 col-xl-3 col-lg-4" [loading]="isLoading">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <mat-card>
-                    <mat-card-header>
-                        <h2 class="fs-2"><mat-icon class="me-3">person</mat-icon>User Login</h2>
-                    </mat-card-header>
-                    <mat-card-content class="border-top pt-3">
-                        <main>
-                            <mat-form-field class="w-100" appearance="outline">
-                                <mat-label>Username</mat-label>
-                                <input autocomplete="username" type="text" matInput formControlName="username">
-                                <mat-error *ngIf="usernameField.dirty">
-                                    <span *ngIf="usernameField.hasError('required')">
-                                        Please Enter Username
-                                    </span>
-                                    <span *ngIf="usernameField.hasError('minlength')">
-                                        Too Short Username.
-                                    </span>
-                                </mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="w-100 mt-3" appearance="outline">
-                                <mat-label>Password</mat-label>
-                                <input type="password" autocomplete="current-password" matInput formControlName="password">
-                                <mat-error *ngIf="passwordField.dirty">
-                                    <span *ngIf="passwordField.hasError('required')">
-                                        Please Enter a Password.
-                                    </span>
-                                    <span *ngIf="passwordField.hasError('minlength')">
-                                        Password is too Short.
-                                    </span>
-                                </mat-error>
-                            </mat-form-field>
+  <div class="h-100 row d-flex justify-content-center">
+    <div class="col-md-6 col-xl-3 col-lg-4 mt-5">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-2">
+        <mat-card [loading]="isLoading">
+          <mat-card-header>
+            <h2 class="fs-2">
+              <mat-icon class="me-3">person</mat-icon>User Login
+            </h2>
+          </mat-card-header>
+          <mat-card-content class="border-top pt-3">
+            <main>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input
+                  autocomplete="username"
+                  type="text"
+                  matInput
+                  formControlName="username"
+                />
+                <mat-error *ngIf="usernameField.dirty">
+                  <span *ngIf="usernameField.hasError('required')">
+                    Please Enter Username
+                  </span>
+                  <span *ngIf="usernameField.hasError('minlength')">
+                    Too Short Username.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="w-100 mt-3" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                  type="password"
+                  autocomplete="current-password"
+                  matInput
+                  formControlName="password"
+                />
+                <mat-error *ngIf="passwordField.dirty">
+                  <span *ngIf="passwordField.hasError('required')">
+                    Please Enter a Password.
+                  </span>
+                  <span *ngIf="passwordField.hasError('minlength')">
+                    Password is too Short.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </main>
+          </mat-card-content>
 
-                        </main>
-                    </mat-card-content>
-
-                    <mat-card-actions class="card-footer d-flex justify-content-between border-top pt-3">
-                        <button type="submit" mat-flat-button color="primary" class="w-100 p-4" [disabled]="loginForm.invalid">
-                            Submit
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-            </form>
-        </div>
+          <mat-card-actions
+            class="card-footer d-flex justify-content-between border-top pt-3"
+          >
+            <button
+              type="submit"
+              mat-flat-button
+              color="primary"
+              class="w-100 p-4"
+              [disabled]="loginForm.invalid"
+            >
+              Submit
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
     </div>
+  </div>
 </div>
