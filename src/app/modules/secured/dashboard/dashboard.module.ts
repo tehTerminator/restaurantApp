@@ -10,7 +10,6 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
-import { CreateOrderComponent } from './components/create-order/create-order.component';
 import { CoreModule } from '../../core/core.module';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { CoreModule } from '../../core/core.module';
     ListLocationsComponent,
     ListProductsComponent,
     ListOrdersComponent,
-    CreateOrderComponent,
   ],
   imports: [
     CommonModule,

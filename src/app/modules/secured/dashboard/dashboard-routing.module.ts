@@ -20,10 +20,6 @@ const routes: Routes = [
         path: 'list-orders',
         component: ListOrdersComponent,
       },
-      {
-        path: 'create-orders',
-        component: CreateOrderComponent,
-      },
       { path: '**', redirectTo: 'select-location', pathMatch: 'full' },
     ],
   },
