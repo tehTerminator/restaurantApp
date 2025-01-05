@@ -1,0 +1,49 @@
+<div class="container mt-3">
+  <div class="row g-3 mt-2">
+    <div class="col-6">
+      <button
+        mat-raised-button
+        color="secondary"
+        class="w-100"
+        (click)="prev()"
+      >
+        <mat-icon> arrow_back </mat-icon>
+        Previous
+      </button>
+    </div>
+    <div class="col-6">
+      <button
+        mat-raised-button
+        color="secondary"
+        class="w-100"
+        (click)="next()"
+      >
+        <mat-icon> arrow_forward </mat-icon>
+        Next
+      </button>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-2" [loading]="loading">
+    <div class="col-md-4 col-lg-2">
+      <table class="table table-border">
+        <thead>
+          <tr>
+            <th>Table Number</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.location_id }}</td>
+            <td>{{ order.product.title }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.comments }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

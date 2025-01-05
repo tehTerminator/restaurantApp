@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { ListLocationsComponent } from './components/list-locations/list-locations.component';
+import { ListProductsComponent } from './components/list-products/list-products.component';
+import { ListOrdersComponent } from './components/list-orders/list-orders.component';
+import { CreateOrderComponent } from './components/create-order/create-order.component';
 
 const routes: Routes = [
   {
@@ -9,6 +12,18 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'select-location', component: ListLocationsComponent },
+      {
+        path: 'select-products/:location_id',
+        component: ListProductsComponent,
+      },
+      {
+        path: 'list-orders',
+        component: ListOrdersComponent,
+      },
+      {
+        path: 'create-orders',
+        component: CreateOrderComponent,
+      },
       { path: '**', redirectTo: 'select-location', pathMatch: 'full' },
     ],
   },

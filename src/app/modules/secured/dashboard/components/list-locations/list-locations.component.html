@@ -1,20 +1,16 @@
 <div class="container mt-3">
   <div class="row g-2">
-    <div class="col-md-4 col-lg-2" *ngFor="let location of locations">
-      <div class="card">
+    <div
+      class="col-md-4 col-lg-2 col-sm-6 col-xs-6"
+      *ngFor="let location of locations"
+    >
+      <div
+        class="card"
+        [routerLink]="['/auth', 'dashboard', 'select-products', location.id]"
+      >
         <h3 class="card-header text-center fs-3">
           {{ location.title }}
         </h3>
-        <img
-          class="card-img-top"
-          src="./../../../../../../assets/location.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <button mat-raised-button class="w-100" color="primary">
-            Select
-          </button>
-        </div>
       </div>
     </div>
   </div>
