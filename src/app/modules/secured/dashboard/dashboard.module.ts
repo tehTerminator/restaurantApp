@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { CoreModule } from '../../core/core.module';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CoreModule } from '../../core/core.module';
     ListLocationsComponent,
     ListProductsComponent,
     ListOrdersComponent,
+    OrderSummaryComponent,
   ],
   imports: [
     CommonModule,

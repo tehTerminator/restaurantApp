@@ -1,16 +1,62 @@
 <div class="container mt-3">
-  <div class="row g-2">
-    <div
-      class="col-md-4 col-lg-2 col-sm-6 col-xs-6"
-      *ngFor="let location of locations"
-    >
-      <div
-        class="card"
-        [routerLink]="['/auth', 'dashboard', 'select-products', location.id]"
-      >
-        <h3 class="card-header text-center fs-3">
-          {{ location.title }}
-        </h3>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
+    <div class="col" *ngFor="let location of locations">
+      <div class="card shadow h-100">
+        <div class="card-header text-center fs-3">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Location Name"
+              aria-label="Location Name"
+              [(ngModel)]="location.title"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="updateTitle(location.id)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <app-order-summary [location]="location.id"></app-order-summary>
+          <div class="row g-2">
+            <div class="col-6">
+              <button
+                mat-raised-button
+                color="primary"
+                class="w-100"
+                [routerLink]="[
+                  '/auth',
+                  'dashboard',
+                  'select-products',
+                  location.id
+                ]"
+              >
+                <mat-icon>add</mat-icon>
+                Add
+              </button>
+            </div>
+            <div class="col-6">
+              <button
+                mat-raised-button
+                color="primary"
+                class="w-100"
+                [routerLink]="[
+                  '/auth',
+                  'dashboard',
+                  'select-products',
+                  location.id
+                ]"
+              >
+                <mat-icon>shopping_cart</mat-icon>
+                View Bill
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

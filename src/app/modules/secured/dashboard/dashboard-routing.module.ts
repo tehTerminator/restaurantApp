@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard.component';
 import { ListLocationsComponent } from './components/list-locations/list-locations.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
-import { CreateOrderComponent } from './components/create-order/create-order.component';
 
 const routes: Routes = [
   {
