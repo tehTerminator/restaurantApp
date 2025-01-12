@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SecuredComponent } from './secured.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
     component: SecuredComponent,
     children: [
+      {
+        path: '404',
+        component: PageNotFoundComponent,
+      },
       {
         path: 'dashboard',
         loadChildren: () =>
@@ -26,6 +31,11 @@ const routes: Routes = [
         path: 'locations',
         loadChildren: () =>
           import('./locations/locations.module').then((m) => m.LocationsModule),
+      },
+      {
+        path: 'invoice',
+        loadChildren: () =>
+          import('./invoice/invoice.module').then((m) => m.InvoiceModule),
       },
       {
         path: '**',

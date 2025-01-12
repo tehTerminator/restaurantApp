@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between" *ngIf="order; else orderNull">
+  <h3>
+    {{ order?.product?.title }}
+  </h3>
+  <span>
+    {{ order?.quantity }}
+  </span>
+  <span>
+    {{ order?.status }}
+  </span>
+</div>
+
+<ng-template #orderNull> Nothing to Show Here </ng-template>
