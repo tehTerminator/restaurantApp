@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
     <div class="col" *ngFor="let location of locations">
-      <div class="card shadow h-100">
+      <div class="card shadow h-100" @fadeIn>
         <div class="card-header text-center fs-3">
           <div class="input-group">
             <input
@@ -21,7 +21,10 @@
           </div>
         </div>
         <div class="card-body">
-          <app-order-summary [location]="location.id"></app-order-summary>
+          <app-order-summary
+            [location]="location.id"
+            @fadeIn
+          ></app-order-summary>
           <div class="row g-2">
             <div class="col-6">
               <button

@@ -9,32 +9,34 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
-  declarations: [
-    LoadingDirective
-  ],
+  declarations: [LoadingDirective],
   imports: [
     CommonModule,
     MatAutocompleteModule,
     MatButtonModule,
-    MatIconModule,  
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     LoadingDirective,
     MatAutocompleteModule,
     MatButtonModule,
-    MatIconModule,  
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
     ReactiveFormsModule,
-    MatTabsModule
-  ]
+    MatTabsModule,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

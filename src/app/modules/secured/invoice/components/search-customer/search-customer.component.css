@@ -1,0 +1,55 @@
+.mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.title-text {
+  margin-left: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.mat-divider {
+  margin: 10px 0;
+}
+
+.result-container {
+  margin-top: 20px;
+}
+
+.customer-card {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.customer-card {
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+  cursor: pointer; /* Makes the card clickable */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.customer-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.customer-card .mat-card-title {
+  display: flex;
+  align-items: center;
+}
+
+.customer-card .customer-title {
+  margin-left: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.mat-divider {
+  margin: 10px 0;
+}

@@ -1,3 +1,47 @@
-<p>
-  create-customer works!
-</p>
+<mat-card>
+  <form [formGroup]="customerFG" (ngSubmit)="onSubmit()">
+    <mat-card-header>
+      <mat-card-title
+        ><mat-icon>person</mat-icon> Customer Information</mat-card-title
+      >
+    </mat-card-header>
+    <hr />
+    <mat-card-content>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Name</mat-label> <mat-icon matPrefix>person</mat-icon>
+        <input
+          #customerTitle
+          type="text"
+          matInput
+          placeholder="Enter customer name"
+          name="name"
+          formControlName="title"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <mat-icon matPrefix>phone</mat-icon>
+        <input
+          type="text"
+          matInput
+          maxlength="10"
+          placeholder="Enter mobile number"
+          name="mobile"
+          formControlName="mobile"
+          autocomplete="off"
+          required
+        />
+        <mat-hint align="end"
+          >{{ customerFG.mobile.length || 0 }} / 10</mat-hint
+        >
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="primary" class="w-100">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

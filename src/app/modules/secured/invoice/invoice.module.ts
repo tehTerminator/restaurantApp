@@ -6,9 +6,11 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
 import { SearchCustomerComponent } from './components/search-customer/search-customer.component';
 import { SelectPaymentMethodComponent } from './components/select-payment-method/select-payment-method.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { MyInvoiceService } from './my-invoice.service';
+import { CoreModule } from '../../core/core.module';
 
 @NgModule({
-  imports: [CommonModule, InvoiceRoutingModule],
+  imports: [CommonModule, InvoiceRoutingModule, CoreModule],
   declarations: [
     InvoiceComponent,
     CreateCustomerComponent,
@@ -16,5 +18,6 @@ import { TransactionsComponent } from './components/transactions/transactions.co
     SelectPaymentMethodComponent,
     TransactionsComponent,
   ],
+  providers: [MyInvoiceService],
 })
 export class InvoiceModule {}
