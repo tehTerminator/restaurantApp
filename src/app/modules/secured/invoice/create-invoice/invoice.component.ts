@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MyInvoiceService } from './my-invoice.service';
+import { MyInvoiceService } from '../my-invoice.service';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Location } from 'src/app/interface/location.interface';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
+import { Customer } from 'src/app/interface/customer';
 
 @Component({
   selector: 'app-invoice',
@@ -32,5 +33,9 @@ export class InvoiceComponent implements OnInit {
         },
       });
     }
+  }
+
+  get customer(): Customer {
+    return this.invoiceStore.customer;
   }
 }

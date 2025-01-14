@@ -1,0 +1,17 @@
+<div class="container-xl">
+  <div class="row g-2">
+    <div class="col-md-8">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Invoice For {{ customer.title }} </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-transactions></app-transactions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

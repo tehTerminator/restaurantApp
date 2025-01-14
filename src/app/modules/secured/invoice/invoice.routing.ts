@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchCustomerComponent } from './components/search-customer/search-customer.component';
-import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
-import { SelectPaymentMethodComponent } from './components/select-payment-method/select-payment-method.component';
-import { InvoiceComponent } from './invoice.component';
+import { SearchCustomerComponent } from './create-invoice/components/search-customer/search-customer.component';
+import { CreateCustomerComponent } from './create-invoice/components/create-customer/create-customer.component';
+import { SelectPaymentMethodComponent } from './create-invoice/components/select-payment-method/select-payment-method.component';
+import { InvoiceComponent } from './create-invoice/invoice.component';
+import { SetDiscountComponent } from './create-invoice/components/set-discount/set-discount.component';
+import { PrintInvoiceComponent } from './print-invoice/print-invoice.component';
 
 const routes: Routes = [
   {
@@ -19,10 +21,18 @@ const routes: Routes = [
         component: CreateCustomerComponent,
       },
       {
+        path: 'set-discount',
+        component: SetDiscountComponent,
+      },
+      {
         path: 'select-payment-method',
         component: SelectPaymentMethodComponent,
       },
     ],
+  },
+  {
+    path: 'print/:id',
+    component: PrintInvoiceComponent,
   },
   {
     path: '**',

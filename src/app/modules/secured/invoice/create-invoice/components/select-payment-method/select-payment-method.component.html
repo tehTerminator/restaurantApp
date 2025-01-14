@@ -1,0 +1,14 @@
+<div class="select-payment-method">
+  <button mat-raised-button class="payment-btn cash" (click)="selectPaymentMethod('CASH')">
+    <mat-icon class="payment-icon">money</mat-icon>
+    <span class="payment-text">CASH</span>
+  </button>
+  <button mat-raised-button class="payment-btn upi" (click)="selectPaymentMethod('UPI')">
+    <mat-icon class="payment-icon">credit_card</mat-icon>
+    <span class="payment-text">UPI</span>
+  </button>
+  <button mat-raised-button class="payment-btn unpaid" (click)="selectPaymentMethod('UNPAID')">
+    <mat-icon class="payment-icon">cancel</mat-icon>
+    <span class="payment-text">UNPAID</span>
+  </button>
+</div>

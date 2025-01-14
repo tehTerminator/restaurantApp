@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Customer, EMPTY_CUSTOMER } from 'src/app/interface/customer';
 import { ApiService } from 'src/app/services/api/api.service';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
-import { MyInvoiceService } from '../../my-invoice.service';
+import { MyInvoiceService } from '../../../my-invoice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -53,7 +53,7 @@ export class SearchCustomerComponent implements OnInit {
 
   setCustomer() {
     this.invoiceStore.customer = this.customer;
-    this.router.navigate(['../select-payment-method'], {
+    this.router.navigate(['../set-discount'], {
       relativeTo: this.route,
     });
   }

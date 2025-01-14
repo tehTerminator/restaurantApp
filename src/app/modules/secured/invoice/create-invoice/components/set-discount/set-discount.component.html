@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-content>
+    <mat-form-field class="w-100 mt-1" appearance="outline">
+      <mat-label>Discount</mat-label>
+      <mat-icon matPrefix>rupee</mat-icon>
+      <input
+        [formControl]="discountFC"
+        type="number"
+        step="1"
+        matInput
+        autocomplete="off"
+      />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="row w-100 g-2">
+      <div class="col-6">
+        <button
+          type="button"
+          class="w-100"
+          mat-raised-button
+          color="secondary"
+          (click)="setDiscount()"
+        >
+          <mat-icon>local_offer</mat-icon>
+          Set Discount
+        </button>
+      </div>
+      <div class="col-6">
+        <button
+          [routerLink]="['../select-payment-method']"
+          type="button"
+          class="w-100"
+          mat-raised-button
+          color="primary"
+        >
+          <mat-icon>arrow_right</mat-icon>
+          Next
+        </button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

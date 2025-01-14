@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [LoadingDirective],
@@ -23,6 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatCardModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatTabsModule,
   ],
@@ -35,6 +37,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatCardModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatTabsModule,
   ],
