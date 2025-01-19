@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { CoreModule } from '../../core/core.module';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { OpenOrdersComponent } from './components/open-orders/open-orders.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
     ListLocationsComponent,
     ListProductsComponent,
     ListOrdersComponent,
+    OpenOrdersComponent,
     OrderSummaryComponent,
   ],
   imports: [

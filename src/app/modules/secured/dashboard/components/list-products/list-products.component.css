@@ -1,0 +1,29 @@
+.order-card {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fs-4 {
+  font-size: 1.25rem;
+}
+
+.mat-grid-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mat-grid-tile {
+  flex: 1 1 48%;
+  margin: 4px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-top: 16px;
+}

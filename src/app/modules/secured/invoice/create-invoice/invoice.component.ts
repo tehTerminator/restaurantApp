@@ -38,4 +38,8 @@ export class InvoiceComponent implements OnInit {
   get customer(): Customer {
     return this.invoiceStore.customer;
   }
+
+  get amount(): number {
+    return this.invoiceStore.amount;
+  }
 }

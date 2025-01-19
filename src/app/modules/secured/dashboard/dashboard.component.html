@@ -2,5 +2,9 @@
   <mat-tab label="Create Order">
     <router-outlet></router-outlet>
   </mat-tab>
-  <mat-tab label="Open Orders">Open Orders </mat-tab>
+  <mat-tab label="Open Orders">
+    <ng-template matTabContent>
+      <app-open-orders></app-open-orders>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

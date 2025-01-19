@@ -1,5 +1,5 @@
 <div class="container-xl">
-  <div class="row g-2">
+  <div class="row g-2" *ngIf="amount > 0; else noOrders">
     <div class="col-md-8">
       <mat-card>
         <mat-card-header>
@@ -15,3 +15,20 @@
     </div>
   </div>
 </div>
+
+<ng-template #noOrders>
+  <div class="row">
+    <div class="col-12">
+      <div class="alert alert-info d-flex align-items-center" role="alert">
+        <mat-icon class="me-2">info</mat-icon>
+        <div>No Orders</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button mat-stroked-button color="primary" [routerLink]="['/auth']">
+        <mat-icon>arrow_left</mat-icon>
+        Go Back
+      </button>
+    </div>
+  </div>
+</ng-template>

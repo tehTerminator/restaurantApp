@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MyInvoiceService } from '../../../my-invoice.service';
 import { combineLatest, map, Observable } from 'rxjs';
 import { Order } from 'src/app/interface/order.interface';
@@ -23,10 +23,8 @@ import {
     ]),
   ],
 })
-export class TransactionsComponent implements OnInit {
+export class TransactionsComponent {
   constructor(private invoiceStore: MyInvoiceService) {}
-
-  ngOnInit() {}
 
   get orders$(): Observable<Order[]> {
     return this.invoiceStore.orders$ as Observable<Order[]>;

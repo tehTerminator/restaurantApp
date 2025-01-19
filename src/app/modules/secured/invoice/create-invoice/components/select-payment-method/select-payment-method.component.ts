@@ -3,6 +3,7 @@ import { MyInvoiceService } from '../../../my-invoice.service';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Invoice } from 'src/app/interface/invoice.interface';
 import { retry } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-payment-method',
@@ -10,12 +11,16 @@ import { retry } from 'rxjs';
   styleUrls: ['./select-payment-method.component.css'],
 })
 export class SelectPaymentMethodComponent {
+  loading = false;
   constructor(
     private invoiceStore: MyInvoiceService,
-    private api: ApiService
+    private api: ApiService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   selectPaymentMethod(method: string) {
+    this.loading = true;
     const amount = this.invoiceStore.amount;
     const discount = this.invoiceStore.discount;
     const payment_method = method;
@@ -32,7 +37,12 @@ export class SelectPaymentMethodComponent {
       })
       .pipe(retry(2))
       .subscribe({
-        next: () => {},
+        next: (invoice) => {
+          this.router.navigate(['/auth', '/invoice', 'print', invoice.id]);
+        },
+        error: () => {
+          this.loading = false;
+        },
       });
   }
 }
