@@ -1,37 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, map, startWith } from 'rxjs';
 import { Order } from 'src/app/interface/order.interface';
 import { ApiService } from 'src/app/services/api/api.service';
 import { SECOND } from 'src/app/shared/constants';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from '@angular/animations';
+import { isEqual } from 'lodash';
 
 @Component({
   selector: 'app-open-orders',
   templateUrl: './open-orders.component.html',
   styleUrls: ['./open-orders.component.css'],
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('300ms ease-in', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [animate('300ms ease-out', style({ opacity: 0 }))]),
-    ]),
-    trigger('buttonPress', [
-      state('default', style({ transform: 'scale(1)' })),
-      state('pressed', style({ transform: 'scale(0.95)' })),
-      transition('default <=> pressed', [animate('100ms ease-in-out')]),
-    ]),
-  ],
+  standalone: false,
 })
-export class OpenOrdersComponent implements OnInit {
+export class OpenOrdersComponent implements OnInit, OnDestroy {
   orders$ = new BehaviorSubject<Order[]>([]);
   displayedColumns: string[] = [
     'product',
@@ -42,7 +23,7 @@ export class OpenOrdersComponent implements OnInit {
     'actions',
   ];
   dataSource = new MatTableDataSource<Order>();
-  buttonState = 'default';
+  private _interval: any = null;
   constructor(private api: ApiService) {}
 
   ngOnInit() {
@@ -50,12 +31,18 @@ export class OpenOrdersComponent implements OnInit {
       this.dataSource.data = orders || [];
     });
     this.getOrders();
+    this._interval = setInterval(() => this.getOrders(), SECOND * 30);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this._interval);
   }
 
   getOrders() {
     this.api.fetch<Order[]>(['orders', 'open']).subscribe({
       next: (orders) => {
-        this.orders$.next(orders);
+        const currentOrders = this.orders$.value;
+        if (!isEqual(orders, currentOrders)) this.orders$.next(orders);
       },
       error: (err) => {
         this.orders$.next([]);
@@ -82,7 +69,7 @@ export class OpenOrdersComponent implements OnInit {
   replaceOrder(order: Order) {
     const oldOrders = this.orders$.value;
     const index = oldOrders.findIndex((x) => x.id === order.id);
-    oldOrders.splice(index, 1, order);
+    oldOrders[index] = order;
     this.orders$.next(oldOrders);
 
     if (order.status === 'COMPLETED' || order.status === 'CANCELLED') {
@@ -97,12 +84,5 @@ export class OpenOrdersComponent implements OnInit {
       oldOrder.splice(index, 1);
       this.orders$.next(oldOrder);
     }, 3 * SECOND);
-  }
-
-  onButtonClick() {
-    this.buttonState = 'pressed';
-    setTimeout(() => {
-      this.buttonState = 'default';
-    }, 100);
   }
 }

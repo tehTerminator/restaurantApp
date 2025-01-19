@@ -7,9 +7,10 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
 
 @Component({
-  selector: 'app-list-orders',
-  templateUrl: './list-orders.component.html',
-  styleUrls: ['./list-orders.component.css'],
+    selector: 'app-list-orders',
+    templateUrl: './list-orders.component.html',
+    styleUrls: ['./list-orders.component.css'],
+    standalone: false
 })
 export class ListOrdersComponent implements AfterViewInit {
   orders: Order[] = [];

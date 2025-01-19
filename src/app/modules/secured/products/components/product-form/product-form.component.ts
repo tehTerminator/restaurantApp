@@ -7,9 +7,10 @@ import { Observable, catchError, from, take } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-product-form',
-  templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss',
+    selector: 'app-product-form',
+    templateUrl: './product-form.component.html',
+    styleUrl: './product-form.component.scss',
+    standalone: false
 })
 export class ProductFormComponent implements AfterViewInit {
   productForm = new ProductForm();

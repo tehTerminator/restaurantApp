@@ -3,9 +3,10 @@ import { MyInvoiceService } from '../../../my-invoice.service';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-set-discount',
-  templateUrl: './set-discount.component.html',
-  styleUrls: ['./set-discount.component.css'],
+    selector: 'app-set-discount',
+    templateUrl: './set-discount.component.html',
+    styleUrls: ['./set-discount.component.css'],
+    standalone: false
 })
 export class SetDiscountComponent implements OnInit {
   discountFC = new FormControl<number>(0, { nonNullable: true });

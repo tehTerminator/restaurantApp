@@ -13,6 +13,7 @@ import { MINUTE } from 'src/app/shared/constants';
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
   styleUrls: ['./order-summary.component.css'],
+  standalone: false,
 })
 export class OrderSummaryComponent implements OnChanges, OnInit, OnDestroy {
   @Input('location') location = 0;
@@ -26,7 +27,7 @@ export class OrderSummaryComponent implements OnChanges, OnInit, OnDestroy {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.interval = setInterval(() => this.fetchOrders(), MINUTE * 10);
+    this.interval = setInterval(() => this.fetchOrders(), MINUTE);
   }
 
   ngOnDestroy(): void {

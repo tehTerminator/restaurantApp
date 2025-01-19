@@ -1,0 +1,91 @@
+<div class="day-report-container">
+  <div class="day-report-card card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-header text-center bg-primary text-white">
+      <h3>Day Report</h3>
+    </div>
+    <div class="card-body">
+      <div class="date-picker-container form-group mb-4">
+        <label for="datePicker" class="form-label">Select Date</label>
+        <input
+          type="date"
+          id="datePicker"
+          class="form-control"
+          bsDatepicker
+          [(ngModel)]="selectedDate"
+        />
+      </div>
+      <button class="btn btn-primary mb-4" (click)="getReport()">
+        Get Report
+      </button>
+
+      <div class="summary" *ngIf="report">
+        <div class="row mb-4">
+          <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <h5 class="card-title text-secondary">Total Orders</h5>
+                <p class="card-text display-4">{{ report.totalOrders }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <h5 class="card-title text-secondary">Cancelled Orders</h5>
+                <p class="card-text display-4">{{ report.cancelledOrders }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <h5 class="card-title text-secondary">Order Amount</h5>
+                <p class="card-text display-4">
+                  {{ report.orderAmount | currency : "INR" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-summary mb-4">
+          <h4 class="text-center">Payment Summary</h4>
+          <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let payment of report.payment">
+              <div class="card shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-secondary">
+                    {{ payment.payment_method }}
+                  </h5>
+                  <p class="card-text display-6">
+                    {{ payment.totalAmount | currency : "INR" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="orders-list" *ngIf="report">
+        <h4 class="text-center mb-3">Orders</h4>
+        <table class="table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of report.orders">
+              <td>{{ order.product.title }}</td>
+              <td>{{ order.quantity }}</td>
+              <td>{{ order.totalAmount | currency : "INR" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,9 +7,10 @@ import { MyInvoiceService } from '../../../my-invoice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-search-customer',
-  templateUrl: './search-customer.component.html',
-  styleUrls: ['./search-customer.component.css'],
+    selector: 'app-search-customer',
+    templateUrl: './search-customer.component.html',
+    styleUrls: ['./search-customer.component.css'],
+    standalone: false
 })
 export class SearchCustomerComponent implements OnInit {
   mobileField = new FormControl('9999999999', {

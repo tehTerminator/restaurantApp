@@ -8,9 +8,10 @@ import { NotificationsService } from 'src/app/services/notifications/notificatio
 import { OrderService } from '../../services/orders.service';
 
 @Component({
-  selector: 'app-list-products',
-  templateUrl: './list-products.component.html',
-  styleUrls: ['./list-products.component.css'],
+    selector: 'app-list-products',
+    templateUrl: './list-products.component.html',
+    styleUrls: ['./list-products.component.css'],
+    standalone: false
 })
 export class ListProductsComponent implements OnInit {
   orders: Array<Order> = [];

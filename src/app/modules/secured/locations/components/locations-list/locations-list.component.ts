@@ -4,9 +4,10 @@ import { NotificationsService } from 'src/app/services/notifications/notificatio
 import { Location } from 'src/app/interface/location.interface';
 
 @Component({
-  selector: 'app-locations-list',
-  templateUrl: './locations-list.component.html',
-  styleUrls: ['./locations-list.component.css'],
+    selector: 'app-locations-list',
+    templateUrl: './locations-list.component.html',
+    styleUrls: ['./locations-list.component.css'],
+    standalone: false
 })
 export class LocationsListComponent implements OnInit {
   locations: Location[] = [];

@@ -1,12 +1,5 @@
 export const navItems: Array<MenuItems> = [
   {
-    title: 'Orders',
-    links: [
-      { text: 'Create', routerLink: ['orders', 'create'] },
-      { text: 'View', routerLink: ['orders', 'view'] },
-    ],
-  },
-  {
     title: 'Products',
     links: [
       { text: 'Create', routerLink: ['products', 'create'] },
@@ -18,6 +11,17 @@ export const navItems: Array<MenuItems> = [
     links: [
       { text: 'Create', routerLink: ['locations', 'create'] },
       { text: 'View', routerLink: ['locations', 'view'] },
+    ],
+  },
+  {
+    title: 'Invoice',
+    links: [{ text: 'View', routerLink: ['invoice', 'view'] }],
+  },
+  {
+    title: 'Reports',
+    links: [
+      { text: 'Day Report', routerLink: ['report', 'day-view'] },
+      { text: 'Monthly View', routerLink: ['report', 'monthly-view'] },
     ],
   },
 ];

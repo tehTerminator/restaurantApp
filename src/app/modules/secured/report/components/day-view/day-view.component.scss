@@ -1,0 +1,47 @@
+.day-report-container {
+  margin: 20px;
+}
+
+.date-picker-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.summary .card,
+.payment-summary .card {
+  margin-bottom: 20px;
+  border: none;
+}
+
+.summary .card-title,
+.payment-summary .card-title {
+  font-weight: bold;
+}
+
+.payment-summary {
+  margin-bottom: 20px;
+}
+
+.orders-list {
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table th {
+  font-size: 1rem;
+}
+
+.table-dark th {
+  color: #fff;
+}
+
+.card-body p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}

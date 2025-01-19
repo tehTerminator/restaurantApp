@@ -6,9 +6,10 @@ import { retry } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-select-payment-method',
-  templateUrl: './select-payment-method.component.html',
-  styleUrls: ['./select-payment-method.component.css'],
+    selector: 'app-select-payment-method',
+    templateUrl: './select-payment-method.component.html',
+    styleUrls: ['./select-payment-method.component.css'],
+    standalone: false
 })
 export class SelectPaymentMethodComponent {
   loading = false;

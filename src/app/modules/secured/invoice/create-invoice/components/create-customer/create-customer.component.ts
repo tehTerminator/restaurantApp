@@ -13,9 +13,10 @@ import { MyInvoiceService } from '../../../my-invoice.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-customer',
-  templateUrl: './create-customer.component.html',
-  styleUrls: ['./create-customer.component.css'],
+    selector: 'app-create-customer',
+    templateUrl: './create-customer.component.html',
+    styleUrls: ['./create-customer.component.css'],
+    standalone: false
 })
 export class CreateCustomerComponent implements OnInit, AfterViewInit {
   customerFG = new CustomerFormGroup();

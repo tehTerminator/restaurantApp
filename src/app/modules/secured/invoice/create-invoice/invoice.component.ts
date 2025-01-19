@@ -7,9 +7,10 @@ import { NotificationsService } from 'src/app/services/notifications/notificatio
 import { Customer } from 'src/app/interface/customer';
 
 @Component({
-  selector: 'app-invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.css'],
+    selector: 'app-invoice',
+    templateUrl: './invoice.component.html',
+    styleUrls: ['./invoice.component.css'],
+    standalone: false
 })
 export class InvoiceComponent implements OnInit {
   constructor(

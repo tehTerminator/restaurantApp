@@ -4,9 +4,10 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.css'],
+    standalone: false
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];

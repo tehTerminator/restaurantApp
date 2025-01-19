@@ -7,9 +7,10 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
 
 @Component({
-  selector: 'app-locations-form',
-  templateUrl: './locations-form.component.html',
-  styleUrls: ['./locations-form.component.css'],
+    selector: 'app-locations-form',
+    templateUrl: './locations-form.component.html',
+    styleUrls: ['./locations-form.component.css'],
+    standalone: false
 })
 export class LocationsFormComponent implements AfterViewInit {
   locationFormGroup = new LocationFormGroup();

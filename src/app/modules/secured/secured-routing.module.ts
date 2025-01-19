@@ -38,11 +38,21 @@ const routes: Routes = [
           import('./invoice/invoice.module').then((m) => m.InvoiceModule),
       },
       {
+        path: 'report',
+        loadChildren: () =>
+          import('./report/report.module').then((m) => m.ReportModule),
+      },
+      {
         path: '**',
         redirectTo: 'dashboard',
         pathMatch: 'full',
       },
     ],
+  },
+  {
+    path: 'report',
+    loadChildren: () =>
+      import('./report/report.module').then((m) => m.ReportModule),
   },
 ];
 

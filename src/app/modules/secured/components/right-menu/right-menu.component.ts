@@ -2,9 +2,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../../../../services/authentication/authentication.service';
 
 @Component({
-  selector: 'app-right-menu',
-  templateUrl: './right-menu.component.html',
-  styleUrl: './right-menu.component.scss',
+    selector: 'app-right-menu',
+    templateUrl: './right-menu.component.html',
+    styleUrl: './right-menu.component.scss',
+    standalone: false
 })
 export class RightMenuComponent {
   @Output() newClickEvent = new EventEmitter<any>();

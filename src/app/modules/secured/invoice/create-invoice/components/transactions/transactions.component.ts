@@ -11,17 +11,18 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-transactions',
-  templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.css'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms ease-in', style({ opacity: 1 })),
-      ]),
-    ]),
-  ],
+    selector: 'app-transactions',
+    templateUrl: './transactions.component.html',
+    styleUrls: ['./transactions.component.css'],
+    animations: [
+        trigger('fadeIn', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate('500ms ease-in', style({ opacity: 1 })),
+            ]),
+        ]),
+    ],
+    standalone: false
 })
 export class TransactionsComponent {
   constructor(private invoiceStore: MyInvoiceService) {}
