@@ -3,7 +3,9 @@
         <div class="col-md-4">
             <form [formGroup]="categoryFG" class="card" (ngSubmit)="onSubmit()">
                 <div class="card-body">
-                    <h3 class="card-title">Create Category</h3>
+                    <h3 class="card-title">
+                        {{ categoryFG.editMode ? 'Update' : 'Create' }} Category
+                    </h3>
 
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Title</mat-label>

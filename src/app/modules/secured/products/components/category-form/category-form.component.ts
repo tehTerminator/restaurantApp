@@ -43,10 +43,11 @@ export class CategoryFormComponent {
 
   private loadCategory() {
     this.api
-      .fetch<Category>('Category', { id: this.categoryFG.id.toString() })
+      .fetch<Category>('category', { id: this.categoryFG.id.toString() })
       .subscribe({
-        next: (Category: Category) => {
-          this.categoryFG.title = Category.title;
+        next: (category: Category) => {
+          this.categoryFG.id = category.id;
+          this.categoryFG.title = category.title;
         },
       });
   }
@@ -59,7 +60,7 @@ export class CategoryFormComponent {
     let response: Observable<Category> = from([EMPTY_CATEGORY]);
 
     if (this.categoryFG.editMode) {
-      response = this.api.create<Category>('category', this.categoryFG.value);
+      response = this.api.update<Category>('category', this.categoryFG.value);
     } else {
       response = this.api.create<Category>('category', this.categoryFG.value);
     }
