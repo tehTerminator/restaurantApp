@@ -6,15 +6,18 @@ import { Product } from 'src/app/interface/product.interface';
 import { ApiService } from 'src/app/services/api/api.service';
 import { NotificationsService } from 'src/app/services/notifications/notifications.service';
 import { OrderService } from '../../services/orders.service';
+import { Category } from '../../../../../interface/product.interface';
 
 @Component({
-    selector: 'app-list-products',
-    templateUrl: './list-products.component.html',
-    styleUrls: ['./list-products.component.css'],
-    standalone: false
+  selector: 'app-list-products',
+  templateUrl: './list-products.component.html',
+  styleUrls: ['./list-products.component.css'],
+  standalone: false,
 })
 export class ListProductsComponent implements OnInit {
-  orders: Array<Order> = [];
+  private _orders: Array<Order> = [];
+  categories: Category[] = [];
+  selectedCategory = 1;
   private location_id = 0;
 
   constructor(
@@ -40,12 +43,14 @@ export class ListProductsComponent implements OnInit {
         this.notification.show('Error While Fetching Product ID');
       },
     });
+
+    this.fetchCategories();
   }
 
   private storeProducts(products: Product[]) {
     if (products.length <= 0) return;
 
-    this.orders = [];
+    this._orders = [];
     products.forEach((product) => {
       let order: Order = {
         id: 0,
@@ -59,12 +64,12 @@ export class ListProductsComponent implements OnInit {
         status: 'OPEN',
       };
 
-      this.orders.push(order);
+      this._orders.push(order);
     });
   }
 
   next() {
-    let orderWithQuantity = this.orders.filter((x: Order) => x.quantity > 0);
+    let orderWithQuantity = this._orders.filter((x: Order) => x.quantity > 0);
     if (orderWithQuantity.length > 0) {
       this.orderService.setOrders(orderWithQuantity);
       this.router.navigate(['/auth', 'dashboard', 'list-orders']);
@@ -75,22 +80,42 @@ export class ListProductsComponent implements OnInit {
 
   private fetchProducts() {
     this.api.fetch<Array<Product>>('products').subscribe({
-      next: (data) => this.storeProducts(data),
+      next: (data: Product[]) => this.storeProducts(data),
       error: () => this.notification.show('Unable to Fetch Products'),
     });
   }
 
+  private fetchCategories() {
+    this.api.fetch<Category[]>('categories').subscribe({
+      next: (data: Category[]) => (this.categories = data),
+      error: (err) => {
+        this.notification.show('Unable to Load Categories');
+        console.error(err);
+      },
+    });
+  }
+
   addQuantity(id: number) {
-    const item = this.orders.find((x) => x.product_id === id);
+    const item = this._orders.find((x) => x.product_id === id);
     if (item) {
       item.quantity = (item.quantity || 0) + 1;
     }
   }
 
   removeQuantity(id: number) {
-    const item = this.orders.find((x) => x.product_id === id);
+    const item = this._orders.find((x) => x.product_id === id);
     if (item) {
       item.quantity = Math.max((item.quantity || 0) - 1, 0);
     }
+  }
+
+  get orders(): Order[] {
+    if (this.selectedCategory === 1) {
+      return this._orders;
+    }
+
+    return this._orders.filter(
+      (x) => x.product.category_id === this.selectedCategory
+    );
   }
 }
