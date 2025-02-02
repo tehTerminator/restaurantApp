@@ -78,7 +78,7 @@ export class ProductFormComponent implements AfterViewInit {
     let response: Observable<Product> = from([EMPTY_PRODUCT]);
 
     if (this.productForm.editMode) {
-      response = this.api.create<Product>('product', this.productForm.value);
+      response = this.api.update<Product>('product', this.productForm.value);
     } else {
       response = this.api.create<Product>('product', this.productForm.value);
     }
