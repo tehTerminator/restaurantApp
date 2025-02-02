@@ -6,9 +6,9 @@ export const navItems: Array<MenuItems> = [
       { text: 'View Product', routerLink: ['products', 'view'] },
       {
         text: 'Create Category',
-        routerLink: ['products', 'create', 'category'],
+        routerLink: ['products', 'category', 'create'],
       },
-      { text: 'View Category', routerLink: ['products', 'view', 'category'] },
+      { text: 'View Category', routerLink: ['products', 'category', 'view'] },
     ],
   },
   {
