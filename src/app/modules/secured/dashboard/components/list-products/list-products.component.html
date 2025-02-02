@@ -1,25 +1,24 @@
 <div class="container mt-3">
   <div class="row g-3 mt-2">
     <div class="col-6">
-      <button
-        mat-raised-button
-        color="secondary"
-        class="w-100"
-        [routerLink]="['/auth', 'dashboard']"
-      >
+      <button mat-raised-button color="secondary" class="w-100" [routerLink]="['/auth', 'dashboard']">
         <mat-icon> arrow_back </mat-icon>
         Previous
       </button>
     </div>
     <div class="col-6">
-      <button
-        mat-raised-button
-        color="secondary"
-        class="w-100"
-        (click)="next()"
-      >
+      <button mat-raised-button color="secondary" class="w-100" (click)="next()">
         <mat-icon> arrow_forward </mat-icon>
         Next
+      </button>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-2 justify-content-center">
+    <div class="col-12 text-start">
+      <button class="btn me-2 mb-2" *ngFor="let category of categories" (click)="selectedCategory = category.id"
+        [ngClass]="selectedCategory === category.id? 'btn-primary':'btn-outline-primary'">
+        {{ category.title }}
       </button>
     </div>
   </div>
@@ -36,42 +35,41 @@
           <br />
           <div class="row g-2">
             <div class="col-12">
-              <button
-                mat-flat-button
-                color="primary"
-                type="button"
-                class="w-100"
-                (click)="addQuantity(order.product.id)"
-              >
+              <button mat-flat-button color="primary" type="button" class="w-100"
+                (click)="addQuantity(order.product.id)">
                 <mat-icon>add</mat-icon>
                 Add
               </button>
             </div>
             <div class="col-12">
-              <button
-                type="button"
-                mat-flat-button
-                color="warn"
-                class="w-100"
-                [disabled]="order.quantity <= 0"
-                (click)="removeQuantity(order.product.id)"
-              >
+              <button type="button" mat-flat-button color="warn" class="w-100" [disabled]="order.quantity <= 0"
+                (click)="removeQuantity(order.product.id)">
                 <mat-icon>remove</mat-icon>
                 Remove
               </button>
             </div>
             <div class="col-12 form-group">
               <label for="order.comment">Comment</label>
-              <input
-                type="text"
-                class="form-control"
-                name="comments"
-                [(ngModel)]="order.comments"
-              />
+              <input type="text" class="form-control" name="comments" [(ngModel)]="order.comments" />
             </div>
           </div>
         </mat-card-content>
       </mat-card>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-2 mb-2">
+    <div class="col-6">
+      <button mat-raised-button color="secondary" class="w-100" [routerLink]="['/auth', 'dashboard']">
+        <mat-icon> arrow_back </mat-icon>
+        Previous
+      </button>
+    </div>
+    <div class="col-6">
+      <button mat-raised-button color="secondary" class="w-100" (click)="next()">
+        <mat-icon> arrow_forward </mat-icon>
+        Next
+      </button>
     </div>
   </div>
 </div>
