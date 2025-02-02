@@ -4,58 +4,36 @@
       <div class="card shadow h-100" @fadeIn>
         <div class="card-header text-center fs-3">
           <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Location Name"
-              aria-label="Location Name"
-              [(ngModel)]="location.title"
-            />
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              (click)="updateTitle(location.id)"
-            >
+            <input type="text" class="form-control" placeholder="Location Name" aria-label="Location Name"
+              [(ngModel)]="location.title" />
+            <button class="btn btn-outline-secondary" type="button" (click)="updateTitle(location.id)">
               <mat-icon>edit</mat-icon>
             </button>
           </div>
         </div>
         <div class="card-body">
-          <app-order-summary
-            [location]="location.id"
-            @fadeIn
-          ></app-order-summary>
+          <app-order-summary [location]="location.id" @fadeIn></app-order-summary>
           <div class="row g-2">
             <div class="col-6">
-              <button
-                mat-raised-button
-                color="primary"
-                class="w-100"
-                [routerLink]="[
+              <button mat-raised-button color="primary" class="w-100" [routerLink]="[
                   '/auth',
                   'dashboard',
                   'select-products',
                   location.id
-                ]"
-              >
+                ]">
                 <mat-icon>add</mat-icon>
                 Add
               </button>
             </div>
             <div class="col-6">
-              <button
-                mat-raised-button
-                color="accent"
-                class="w-100"
-                [routerLink]="[
+              <button mat-raised-button color="accent" class="w-100" [routerLink]="[
                   '/auth',
                   'invoice',
                   location.id,
                   'search-customer'
-                ]"
-              >
+                ]">
                 <mat-icon>shopping_cart</mat-icon>
-                View Bill
+                Bill
               </button>
             </div>
           </div>
