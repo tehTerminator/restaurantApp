@@ -1,4 +1,3 @@
-import { Product } from 'src/app/interface/product.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class ProductForm extends FormGroup {
@@ -7,6 +6,7 @@ export class ProductForm extends FormGroup {
       id: new FormControl<number>(0),
       title: new FormControl<string>('', Validators.required),
       rate: new FormControl<number>(0, Validators.required),
+      category_id: new FormControl<number>(0, Validators.required),
       image_url: new FormControl<string>('', Validators.required),
     });
   }
@@ -72,5 +72,17 @@ export class ProductForm extends FormGroup {
 
   set imageUrl(url: string) {
     this.imageFormControl.setValue(url);
+  }
+
+  get categoryFormControl(): FormControl<number> {
+    return this.get('category_id') as FormControl<number>;
+  }
+
+  get category(): number {
+    return this.categoryFormControl.value;
+  }
+
+  set category(id: number) {
+    this.categoryFormControl.setValue(id);
   }
 }

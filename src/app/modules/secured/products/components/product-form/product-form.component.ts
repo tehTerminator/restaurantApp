@@ -1,19 +1,24 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { ProductForm } from './product-form';
-import { ApiService } from 'src/app/services/api/api.service';
-import { EMPTY_PRODUCT, Product } from 'src/app/interface/product.interface';
-import { NotificationsService } from 'src/app/services/notifications/notifications.service';
+import { ApiService } from './../../../../../services/api/api.service';
+import {
+  Category,
+  EMPTY_PRODUCT,
+  Product,
+} from './../../../../../interface/product.interface';
+import { NotificationsService } from './../../../../../services/notifications/notifications.service';
 import { Observable, catchError, from, take } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-    selector: 'app-product-form',
-    templateUrl: './product-form.component.html',
-    styleUrl: './product-form.component.scss',
-    standalone: false
+  selector: 'app-product-form',
+  templateUrl: './product-form.component.html',
+  styleUrl: './product-form.component.scss',
+  standalone: false,
 })
 export class ProductFormComponent implements AfterViewInit {
   productForm = new ProductForm();
+  categories: Category[] = [];
 
   constructor(
     private api: ApiService,
@@ -36,6 +41,8 @@ export class ProductFormComponent implements AfterViewInit {
         this.notification.show('Error While Fetching Product ID');
       },
     });
+
+    this.loadCategory();
   }
 
   private loadProduct() {
@@ -45,9 +52,22 @@ export class ProductFormComponent implements AfterViewInit {
         next: (product: Product) => {
           this.productForm.title = product.title;
           this.productForm.rate = product.rate;
+          this.productForm.category = product.category_id;
           this.productForm.imageUrl = product.image_url;
         },
       });
+  }
+
+  private loadCategory() {
+    this.api.fetch<Category[]>('categories').subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (err) => {
+        this.notification.show('Unable to Load Categories');
+        console.error(err);
+      },
+    });
   }
 
   onSubmit() {
