@@ -13,6 +13,7 @@ import { ListOrdersComponent } from './components/list-orders/list-orders.compon
 import { CoreModule } from '../../core/core.module';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { OpenOrdersComponent } from './components/open-orders/open-orders.component';
+import { DailyOrdersComponent } from './components/daily-orders/daily-orders.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { OpenOrdersComponent } from './components/open-orders/open-orders.compon
     ListOrdersComponent,
     OpenOrdersComponent,
     OrderSummaryComponent,
+    DailyOrdersComponent,
   ],
   imports: [
     CommonModule,
