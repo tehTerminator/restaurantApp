@@ -6,10 +6,10 @@ import { retry } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    selector: 'app-select-payment-method',
-    templateUrl: './select-payment-method.component.html',
-    styleUrls: ['./select-payment-method.component.css'],
-    standalone: false
+  selector: 'app-select-payment-method',
+  templateUrl: './select-payment-method.component.html',
+  styleUrls: ['./select-payment-method.component.css'],
+  standalone: false,
 })
 export class SelectPaymentMethodComponent {
   loading = false;
@@ -20,7 +20,7 @@ export class SelectPaymentMethodComponent {
     private route: ActivatedRoute
   ) {}
 
-  selectPaymentMethod(method: string) {
+  selectPaymentMethod(method: 'CASH' | 'UPI' | 'ZOMATO' | 'UNPAID') {
     this.loading = true;
     const amount = this.invoiceStore.amount;
     const discount = this.invoiceStore.discount;
