@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row g-2 justify-content-center">
+    <div class="col-xl-6 col-lg-8">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Date </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="w-100">
+            <input matInput type="date" [formControl]="dateField" />
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            class="w-100"
+            (click)="fetchOrders()"
+          >
+            Search
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <br />
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Orders</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-border">
+            <thead>
+              <tr>
+                <th>Table Number</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Comments</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{ order.location_id }}</td>
+                <td>{{ order.product.title }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.rate }}</td>
+                <td>{{ order.comments }}</td>
+                <td>{{ order.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
