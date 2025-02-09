@@ -9,6 +9,17 @@ import { PrintInvoiceComponent } from './print-invoice/print-invoice.component';
 
 const routes: Routes = [
   {
+    path: 'print/:id',
+    component: PrintInvoiceComponent,
+  },
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('./search-invoice/search-invoice.module').then(
+        (m) => m.SearchInvoiceModule
+      ),
+  },
+  {
     path: ':location',
     component: InvoiceComponent,
     children: [
@@ -30,11 +41,6 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'print/:id',
-    component: PrintInvoiceComponent,
-  },
-  { path: 'search', loadChildren: () => import('./search-invoice/search-invoice.module').then(m => m.SearchInvoiceModule) },
   {
     path: '**',
     redirectTo: '/auth/404',

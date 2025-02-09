@@ -39,7 +39,7 @@ export class SelectPaymentMethodComponent {
       .pipe(retry(2))
       .subscribe({
         next: (invoice) => {
-          this.router.navigate(['/auth', '/invoice', 'print', invoice.id]);
+          this.router.navigate(['/auth', 'invoice', 'print', invoice.id]);
         },
         error: () => {
           this.loading = false;

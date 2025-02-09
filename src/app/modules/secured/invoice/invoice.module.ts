@@ -9,6 +9,7 @@ import { TransactionsComponent } from './create-invoice/components/transactions/
 import { MyInvoiceService } from './my-invoice.service';
 import { CoreModule } from '../../core/core.module';
 import { SetDiscountComponent } from './create-invoice/components/set-discount/set-discount.component';
+import { PrintInvoiceComponent } from './print-invoice/print-invoice.component';
 
 @NgModule({
   imports: [CommonModule, InvoiceRoutingModule, CoreModule],
@@ -19,6 +20,7 @@ import { SetDiscountComponent } from './create-invoice/components/set-discount/s
     SelectPaymentMethodComponent,
     SetDiscountComponent,
     TransactionsComponent,
+    PrintInvoiceComponent,
   ],
   providers: [MyInvoiceService],
 })
