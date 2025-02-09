@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InvoiceComponent } from './create-invoice/invoice.component';
-import { InvoiceRoutingModule } from './invoice.routing';
+import { InvoiceRoutingModule } from './invoice-routing.module';
 import { CreateCustomerComponent } from './create-invoice/components/create-customer/create-customer.component';
 import { SearchCustomerComponent } from './create-invoice/components/search-customer/search-customer.component';
 import { SelectPaymentMethodComponent } from './create-invoice/components/select-payment-method/select-payment-method.component';
