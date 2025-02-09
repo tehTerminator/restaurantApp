@@ -20,7 +20,7 @@ export const navItems: Array<MenuItems> = [
   },
   {
     title: 'Invoice',
-    links: [{ text: 'View', routerLink: ['invoice', 'view'] }],
+    links: [{ text: 'View', routerLink: ['invoice', 'search'] }],
   },
   {
     title: 'Reports',
