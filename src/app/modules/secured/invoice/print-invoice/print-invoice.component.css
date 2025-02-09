@@ -1,0 +1,26 @@
+.invoice {
+    margin: 20px;
+  }
+  
+  .invoice-card {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  .invoice-details p {
+    margin: 10px 0;
+  }
+  
+  .orders {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-table-card {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0,
