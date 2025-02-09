@@ -15,6 +15,7 @@ import { isEqual } from 'lodash';
 export class OpenOrdersComponent implements OnInit, OnDestroy {
   orders$ = new BehaviorSubject<Order[]>([]);
   displayedColumns: string[] = [
+    'id',
     'product',
     'quantity',
     'status',
