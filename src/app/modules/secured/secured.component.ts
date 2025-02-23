@@ -12,6 +12,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
     standalone: false
 })
 export class SecuredComponent implements OnInit {
+  appName = 'Chatpati Chat';
   constructor(
     private userService: UserStoreService,
     private api: ApiService,

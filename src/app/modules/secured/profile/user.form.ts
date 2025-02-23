@@ -3,16 +3,16 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { User } from '../../../services/authentication/user.model';
 
 export class UserForm extends FormGroup {
-  constructor(user: User) {
+  constructor() {
     super({
-      name: new FormControl(user.name, {
+      id: new FormControl(0, [Validators.required, Validators.min(0)]),
+      name: new FormControl('', {
         validators: [Validators.required, Validators.minLength(3)],
         nonNullable: true,
       }),
-      mobile: new FormControl(user.mobile, {
+      mobile: new FormControl('', {
         validators: [
           Validators.required,
           Validators.minLength(10),
@@ -20,32 +20,20 @@ export class UserForm extends FormGroup {
           Validators.pattern(''),
         ],
       }),
-      oldPassword: new FormControl('', { validators: [Validators.required] }),
-      newPassword: new FormControl('', { validators: [Validators.required] }),
-      confirmPassword: new FormControl('', {
-        validators: [Validators.required],
-      }),
+      password: new FormControl('', { validators: [Validators.required] }),
     });
   }
 
   // Getters and setters for individual form controls
-  getName() {
-    return this.get('name') as FormControl;
+  get nameFC(): FormControl<string>{
+    return this.get('name') as FormControl<string>;
   }
 
-  getMobile() {
-    return this.get('mobile') as FormControl;
+  get mobileFC(): FormControl<string>{
+    return this.get('mobile') as FormControl<string>;
   }
 
-  getOldPassword() {
-    return this.get('oldPassword') as FormControl;
-  }
-
-  getNewPassword() {
-    return this.get('newPassword') as FormControl;
-  }
-
-  getConfirmPassword() {
-    return this.get('confirmPassword') as FormControl;
+  get passwordFC(): FormControl<string>{
+    return this.get('password') as FormControl<string>;
   }
 }

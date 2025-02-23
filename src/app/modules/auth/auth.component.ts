@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       nonNullable: true,
     }),
     password: new FormControl<string>('', {
-      validators: [Validators.required, Validators.minLength(8)],
+      validators: [Validators.required, Validators.minLength(3)],
       nonNullable: true,
     }),
   });
