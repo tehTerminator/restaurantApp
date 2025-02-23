@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+  import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingDirective } from './../../directives/loading.directive';
 
@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [LoadingDirective],
@@ -21,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatCardModule,
@@ -35,6 +37,7 @@ import { MatTableModule } from '@angular/material/table';
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatCardModule,

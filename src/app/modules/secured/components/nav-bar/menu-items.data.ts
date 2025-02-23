@@ -2,13 +2,18 @@ export const navItems: Array<MenuItems> = [
   {
     title: 'Products',
     links: [
-      { text: 'Create Product', routerLink: ['products', 'create'] },
-      { text: 'View Product', routerLink: ['products', 'view'] },
+      { text: 'Create', routerLink: ['products', 'create'] },
+      { text: 'View', routerLink: ['products', 'view'] },
+    ],
+  },
+  {
+    title: 'Categories',
+    links: [
       {
-        text: 'Create Category',
+        text: 'Create',
         routerLink: ['products', 'category', 'create'],
       },
-      { text: 'View Category', routerLink: ['products', 'category', 'view'] },
+      { text: 'View', routerLink: ['products', 'category', 'view'] },
     ],
   },
   {
@@ -29,6 +34,13 @@ export const navItems: Array<MenuItems> = [
       { text: 'Monthly View', routerLink: ['report', 'monthly-view'] },
     ],
   },
+  {
+    title: 'Users',
+    links: [
+      {text: 'Create', routerLink: ['users', 'create-user']},
+    ],
+    role: 'admin'
+  }
 ];
 
 interface MenuItems {
